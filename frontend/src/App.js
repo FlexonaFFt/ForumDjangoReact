@@ -1,7 +1,6 @@
 import React from "react";
 import Menu from "./components/Menu";
 import Posts from "./components/Posts";
-import Test from "./components/test";
 
 function App() {
   return (
@@ -9,7 +8,6 @@ function App() {
       <div className="container mx-auto p-4">
         <Menu />
         <Posts />
-        <Test />
       </div>
     </div>
   );
