@@ -17,10 +17,12 @@ Including another URLconf
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from forum.views import MyModelViewSet
+from django.contrib import admin
 
 router = DefaultRouter()
 router.register(r'mymodels', MyModelViewSet)
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
 ]
