@@ -16,13 +16,13 @@ Including another URLconf
 """
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from forum.views import MyModelViewSet
+from forum.views import PostViewSet
 from django.contrib import admin
 
 router = DefaultRouter()
-router.register(r'mymodels', MyModelViewSet)
+router.register(r'posts', PostViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
