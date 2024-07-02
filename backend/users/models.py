@@ -7,14 +7,19 @@ class User(models.Model):
     profile_image = models.ImageField(upload_to='profile_images', null=True, blank=True)
 
     def __str__(self):
-            return self.username
+        return self.username
 
-    def save(self):
-        super().save()
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    profile_image = models.ImageField(upload_to='profile_images', null=True, blank=True)
 
-        img = Image.open(self.image.path)
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+        if self.profile_image:
+            img = Image.open(self.profile_image.path)
+
+            if img.height > 300 or img.width > 300:
+                output_size = (300, 300)
+                img.thumbnail(output_size)
+                img.save(self.profile_image.path)

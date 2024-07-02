@@ -1,6 +1,6 @@
 import React from "react";
 import Menu from "./components/Menu";
-import Posts from "./components/Posts";
+//import Posts from "./components/Posts";
 import Response from "./components/Response";
 
 function App() {
@@ -8,7 +8,6 @@ function App() {
     <div className="min-h-screen ">
       <div className="container mx-auto p-4">
         <Menu />
-        <Posts />
         <Response />
       </div>
     </div>
